@@ -199,6 +199,44 @@ dedicated **Sources** textbox beneath the answer.
 
 ---
 
+## Query Interface
+
+The Gradio UI ([`app.py`](app.py)) presents a single-screen query interface with
+four elements:
+
+- **Question textbox (input):** A 2-line text field labeled *Your question* where
+  the user types a plain-language question (e.g. *"What do students say about
+  Professor Abiodun Robert?"*). Pressing **Enter** submits it directly.
+- **Ask button:** A primary button that runs the question through the full
+  pipeline — `retrieve()` fetches the top-4 chunks, then `generate_response()`
+  produces a grounded answer. Both the button and the textbox's submit event are
+  wired to the same `ask()` handler.
+- **Answer textbox (output):** An 8-line read-only field labeled *Answer* that
+  shows the grounded answer returned by the generator. If the question is blank,
+  it shows *"Please enter a question."*; if the context lacks the answer, it shows
+  the honest refusal *"I don't have enough information on that."*
+- **Sources textbox (output):** A 4-line read-only field labeled *Sources* that
+  lists the de-duplicated source filenames (one per line) that supplied the
+  context for the answer.
+
+**Sample interaction transcript:**
+
+> **Your question:**
+> Does Professor Chryslee Hines offer extra credit?
+>
+> *(user clicks **Ask**)*
+>
+> **Answer:**
+> Yes. Multiple student reviews mention that Professor Chryslee Hines offers
+> extra credit — one describes the extra credit as "amazing," and another notes
+> she "offers tons of extra credit." Reviewers also describe her as very helpful
+> and accessible outside of class.
+>
+> **Sources:**
+> chryslee_hines.txt
+
+---
+
 ## Evaluation Report
 
 All five test questions from `planning.md`, run through the full pipeline.

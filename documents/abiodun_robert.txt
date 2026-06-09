@@ -1,0 +1,17 @@
+Professor: Abiodun Robert
+Department: Computer Science
+University: Campbellsville University
+Rating: 5.0/5
+Difficulty: 1.8
+Would Take Again: 100%
+
+--- Review 1 ---
+Course: DS621
+Date: Feb 28th, 2026
+Rating: 5.0 | Difficulty: 2.0
+For Credit: Yes | Attendance: Mandatory | Online: Yes
+Grade: Rather not say | Textbook: Yes
+
+The professor has a deep understanding of the subject and the questions, and he approaches them differently, making the topic clear. The professor always finds a way to explain with an example or the challenges. The professor is really friends with the students as well, guiding them in the new path to approach.
+
+Tags: Participation matters, Amazing lectures, Gives good feedback

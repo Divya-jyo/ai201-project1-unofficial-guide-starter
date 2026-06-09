@@ -9,114 +9,101 @@
 
 ## Domain
 
-<!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
+This project focuses on student-generated professor reviews at Campbellsville University. The domain covers CS, Mathematics, Business, and English department professors. This knowledge is valuable because official university channels only provide formal faculty bios and course catalogs — they never tell students whether a professor grades harshly, gives extra credit, is approachable, or makes classes engaging. Students rely on word-of-mouth and platforms like Rate My Professors to make informed decisions about which professors to take. This system makes that scattered knowledge searchable and answerable.
 
 ---
 
 ## Documents
 
-<!-- List your specific sources: URLs, subreddit names, forum threads, or file descriptions.
-     Aim for at least 10 sources that together cover different subtopics or perspectives within your domain. -->
-
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Rate My Professors | Reviews for Prof. Abiodun Robert (CS) | documents/abiodun_robert.txt |
+| 2 | Rate My Professors | Reviews for Prof. Thomas Jeffrey (CS) | documents/thomas_jeffrey.txt |
+| 3 | Rate My Professors | Reviews for Prof. Shane Green (CS) | documents/shane_green.txt |
+| 4 | Rate My Professors | Reviews for Prof. Ehi Aimiuwu (CS) | documents/ehi_aimiuwu.txt |
+| 5 | Rate My Professors | Reviews for Prof. Robert Street (CS) | documents/robert_street.txt |
+| 6 | Rate My Professors | Reviews for Prof. Troy Young (Math) | documents/troy_young.txt |
+| 7 | Rate My Professors | Reviews for Prof. Chris Bullock (Math) | documents/chris_bullock.txt |
+| 8 | Rate My Professors | Reviews for Prof. William McNear (Business) | documents/william_mcnear.txt |
+| 9 | Rate My Professors | Reviews for Prof. Chryslee Hines (Business) | documents/chryslee_hines.txt |
+| 10 | Rate My Professors | Reviews for Prof. Dave Harrity (English) | documents/dave_harrity.txt |
 
 ---
 
 ## Chunking Strategy
 
-<!-- How will you split documents into chunks?
-     State your chunk size (in tokens or characters), overlap size, and explain why those
-     numbers fit the structure of your documents.
-     A review-heavy corpus warrants different chunking than a long FAQ. -->
+**Chunk size:** 300 characters
 
-**Chunk size:**
+**Overlap:** 50 characters
 
-**Overlap:**
-
-**Reasoning:**
+**Reasoning:** The documents are review-style text — short opinions packed with specific facts (grading style, difficulty, attendance policies). A 300-character chunk is large enough to contain one complete student opinion or observation, but small enough to be targeted during retrieval. If chunks were too large (e.g. 1000+ characters), a single chunk might cover multiple unrelated opinions, making it hard to match a specific query. If chunks were too small (e.g. 50 characters), a single sentence would be split across chunks, losing context. The 50-character overlap ensures that a review spanning a chunk boundary is still retrievable as a coherent thought.
 
 ---
 
 ## Retrieval Approach
 
-<!-- Which embedding model are you using (e.g., all-MiniLM-L6-v2 via sentence-transformers)?
-     How many chunks will you retrieve per query (top-k)?
-     If you were deploying this for real users and cost wasn't a constraint, what tradeoffs
-     would you weigh in choosing a different embedding model — context length, multilingual
-     support, accuracy on domain-specific text, latency? -->
+**Embedding model:** all-MiniLM-L6-v2 via sentence-transformers (runs locally, no API key needed)
 
-**Embedding model:**
+**Top-k:** 4
 
-**Top-k:**
-
-**Production tradeoff reflection:**
+**Production tradeoff reflection:** For a production system, I would consider OpenAI's text-embedding-ada-002 or a larger sentence-transformers model for better accuracy on domain-specific text. Tradeoffs include: cost (API-based models charge per token vs free local models), context length (larger models handle longer chunks), multilingual support (if students write in other languages), and latency (local models are slower on CPU but avoid network calls). For this student review use case, all-MiniLM-L6-v2 is a good fit because reviews are short English text and speed matters.
 
 ---
 
 ## Evaluation Plan
 
-<!-- List your 5 test questions with their expected correct answers.
-     Questions should be specific enough that you can judge whether the system's response
-     is right or wrong. "What are good dining halls?" is too vague.
-     "What do students say about wait times at [dining hall name] during lunch?" is testable. -->
-
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | What do students say about Professor Abiodun Robert's teaching style? | Students say he explains concepts clearly with examples, is friendly, and gives good feedback. Highly recommended. |
+| 2 | Is Professor Chris Bullock a good math professor? | Mixed reviews — some say he explains well, others say he moves too fast and assumes too much prior knowledge. |
+| 3 | Does Professor Chryslee Hines offer extra credit? | Yes, multiple reviews mention she offers extra credit and is very helpful. |
+| 4 | What is Professor Shane Green's rating and what do students say? | 1/5 rating. Students say he is unresponsive, grades poorly, and puts in no effort. |
+| 5 | What do students say about Professor Dave Harrity's English class workload? | Heavy workload with lots of papers and reading, but he gives good feedback and is caring. |
 
 ---
 
 ## Anticipated Challenges
 
-<!-- What could go wrong? Name at least two specific risks with reasoning.
-     Consider: noisy or inconsistent documents, missing source attribution, off-topic
-     retrieval, chunks that split key information across boundaries. -->
+1. **Chunks splitting key review information across boundaries:** Some reviews are short (1-2 sentences) and may get split at the wrong point, causing retrieval to return incomplete opinions. This could cause the system to miss the most important part of a review.
 
-1.
-
-2.
+2. **Off-topic retrieval across departments:** Since we have professors from CS, Math, Business, and English, a query about one professor might accidentally retrieve chunks from a different professor's reviews if the language is similar (e.g. "good feedback" appears in many reviews). Source metadata will help attribute answers correctly.
 
 ---
 
 ## Architecture
 
-<!-- Draw a diagram of your pipeline showing the five stages:
-     Document Ingestion → Chunking → Embedding + Vector Store → Retrieval → Generation
-     Label each stage with the tool or library you're using.
-     You can use ASCII art, a Mermaid diagram, or embed a sketch as an image.
-     You'll use this diagram as context when prompting AI tools to implement each stage. -->
+```
+Document Ingestion        Chunking              Embedding + Vector Store
+(load .txt files)   -->  (300 char chunks,  --> (all-MiniLM-L6-v2          
+(Python / os)             50 char overlap)       sentence-transformers
+                          (custom Python)        stored in ChromaDB)
+                                                        |
+                                                        v
+                                                    Retrieval
+                                                 (semantic search,
+                                                   top-k = 4,
+                                                   ChromaDB query)
+                                                        |
+                                                        v
+                                                    Generation
+                                                 (Groq API,
+                                           llama-3.3-70b-versatile,
+                                            grounded response +
+                                            source attribution)
+                                                        |
+                                                        v
+                                                  Gradio Web UI
+```
 
 ---
 
 ## AI Tool Plan
 
-<!-- For each part of the pipeline below, describe:
-     - Which AI tool you plan to use (Claude, Copilot, ChatGPT, etc.)
-     - What you'll give it as input (which sections of this planning.md, which requirements)
-     - What you expect it to produce
-     - How you'll verify the output matches your spec
-
-     "I'll use AI to help me code" is not a plan.
-     "I'll give Claude my Chunking Strategy section and ask it to implement chunk_text()
-     with my specified chunk size and overlap" is a plan. -->
-
 **Milestone 3 — Ingestion and chunking:**
+I will give Claude my Chunking Strategy section (300 char chunks, 50 char overlap) and my Documents section (10 .txt files in /documents folder) and ask it to implement an ingest.py script that loads all .txt files, cleans them by removing extra whitespace, and splits them into chunks using a sliding window approach. I will verify the output by printing 5 sample chunks and checking they are readable and self-contained.
 
 **Milestone 4 — Embedding and retrieval:**
+I will give Claude my Retrieval Approach section (all-MiniLM-L6-v2, top-k=4) and my Architecture diagram and ask it to implement a retriever.py script that embeds all chunks using sentence-transformers, stores them in ChromaDB with source metadata (filename, chunk index), and provides a retrieve() function that returns the top 4 most relevant chunks for a query. I will verify by running 3 test queries and checking distance scores are below 0.5.
 
 **Milestone 5 — Generation and interface:**
+I will give Claude my grounding requirement (answer only from retrieved context, cite sources) and ask it to implement a generator.py that calls Groq's llama-3.3-70b-versatile with a strict system prompt, and an app.py with a Gradio UI showing answer and sources. I will verify by asking a question not in any document and checking the system says it doesn't know.

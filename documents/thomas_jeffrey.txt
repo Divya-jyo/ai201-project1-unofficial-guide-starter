@@ -1,0 +1,55 @@
+Professor: Thomas Jeffrey
+Department: Computer Science
+University: Campbellsville University
+Rating: 3.9/5
+Difficulty: 2.6
+Would Take Again: 75%
+
+--- Review 1 ---
+Course: BA360
+Date: Aug 18th, 2022
+Rating: 5.0 | Difficulty: 1.0
+Would Take Again: Yes
+
+One of my favorite professors and will be missed when I graduate. I've been in several of his classes and I always looked forward to them.
+
+--- Review 2 ---
+Course: BA360
+Date: Dec 7th, 2021
+Rating: 4.0 | Difficulty: 5.0
+For Credit: Yes | Attendance: Mandatory | Online: Yes
+Would Take Again: Yes | Textbook: No
+
+Dr. Jeffrey is a tough grader but is very knowledgeable. There are individual projects along with the assignments every week, a midterm paper, and a final group project. This is a tough class and the final group project was extremely difficult. It required so much. While I did get better every week, I am extremely happy that this course is over.
+
+Tags: Tough grader, Group projects, Lots of homework
+
+--- Review 3 ---
+Course: BIT401
+Date: Oct 13th, 2019
+Rating: 5.0 | Difficulty: 3.0
+For Credit: Yes | Attendance: Mandatory | Online: No
+Grade: A | Textbook: No
+
+This guy is knowledgeable and engaging. I learned a lot in his classes without finding them too difficult.
+
+Tags: Accessible outside class, Participation matters, Group projects
+
+--- Review 4 ---
+Course: BA36001
+Date: Mar 22nd, 2018
+Rating: 2.0 | Difficulty: 2.0
+For Credit: Yes | Attendance: Mandatory | Online: No
+Grade: B | Textbook: No | Would Take Again: No
+
+Condescending and rude. Lecture Heavy. Class isn't hard, but he is not good for support. I feel like he wants students to feel dumb. Did not like.
+
+Tags: Lecture heavy
+
+--- Review 5 ---
+Course: COMP101
+Date: Apr 17th, 2013
+Rating: 3.5 | Difficulty: 2.0
+Textbook: No
+
+A lot of open book tests.

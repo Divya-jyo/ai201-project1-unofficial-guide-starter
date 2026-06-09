@@ -1,0 +1,47 @@
+Professor: Robert Street
+Department: Computer Science
+University: Campbellsville University
+Rating: 3.6/5
+Difficulty: 3.2
+Would Take Again: 100%
+
+--- Review 1 ---
+Course: CS160
+Date: Aug 4th, 2016
+Rating: 3.0 | Difficulty: 3.0
+For Credit: Yes | Attendance: Mandatory
+Would Take Again: Yes | Grade: B+ | Textbook: Yes
+
+He's a great teacher, doing his best to help students.
+
+--- Review 2 ---
+Course: CIS100
+Date: Apr 15th, 2014
+Rating: 4.5 | Difficulty: 4.0
+Grade: B+ | Textbook: Yes
+
+Well organized, all assignments listed at start of class.
+
+--- Review 3 ---
+Course: CIS161
+Date: Apr 16th, 2013
+Rating: 4.0 | Difficulty: 4.0
+Textbook: Yes
+
+Takes time outside of class.
+
+--- Review 4 ---
+Course: CS160
+Date: Oct 31st, 2012
+Rating: 3.5 | Difficulty: 3.0
+Textbook: Yes
+
+The class is set up so you can see everything you need to do, and you can easily get ahead. Lectures are not very interesting with him.
+
+--- Review 5 ---
+Course: CIS100
+Date: Jan 27th, 2011
+Rating: 3.0 | Difficulty: 2.0
+Textbook: Yes
+
+Kinda strange man... But nice.

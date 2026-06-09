@@ -12,6 +12,39 @@ Rating: 5.0 | Difficulty: 2.0
 For Credit: Yes | Attendance: Mandatory | Online: Yes
 Grade: Rather not say | Textbook: Yes
 
-The professor has a deep understanding of the subject and the questions, and he approaches them differently, making the topic clear. The professor always finds a way to explain with an example or the challenges. The professor is really friends with the students as well, guiding them in the new path to approach.
+The professor has a deep understanding of the subject and the questions, and he approaches them differently, making the topic clear. The professor always finds a way to explain with an example or the challenges. The professor is really friendly with the students as well, guiding them in the new path to approach.
 
 Tags: Participation matters, Amazing lectures, Gives good feedback
+
+--- Review 2 ---
+Course: DS621
+Date: Dec 29th, 2025
+Rating: 5.0 | Difficulty: 3.0
+For Credit: Yes | Attendance: Mandatory | Online: Yes
+Grade: A | Textbook: Yes
+
+Prof Abiodun is an awesome instructor. His lectures are clear. The assignments and exams were challenging but fair, aligning perfectly with what we covered in class. The most thing I impress is his teaching technique. It inspires me a lot about the IT world. Highly recommend!
+
+Tags: Inspirational, Caring, Respected
+
+--- Review 3 ---
+Course: DS621
+Date: Dec 22nd, 2025
+Rating: 5.0 | Difficulty: 1.0
+For Credit: Yes | Attendance: Mandatory | Online: No
+Grade: A | Textbook: Yes
+
+The professor made the course look so easy. Passionate and engaging. Very knowledgeable, very kind, and understanding. Challenging but held good discussions.
+
+Tags: Participation matters, Amazing lectures, Clear grading criteria
+
+--- Review 4 ---
+Course: DS621
+Date: Dec 20th, 2025
+Rating: 5.0 | Difficulty: 1.0
+For Credit: Yes | Attendance: Mandatory | Online: Yes
+Grade: A+ | Textbook: Yes
+
+Professor is extremely knowledgeable and explains complex topics clearly with real-world examples. Classes are well structured, engaging, and interactive. Always approachable and supportive of students. One of the best professors I've had. Professor is very friendly and very knowledgeable on subject.
+
+Tags: Get ready to read, Participation matters, Extra Credit
